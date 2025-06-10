@@ -15,7 +15,9 @@ premiums based on factors like age, smoking habits, BMI, and medical history.
 **About Data:**
 
 Data is given in premiums.xlsx file by Client
+
 shape : (50000, 13)
+
 columns : 'Age', 'Gender', 'Region', 'Marital_status', 'Number Of Dependants', 'BMI_Category', 'Smoking_Status', 'Employment_Status', 'Income_Level',
        'Income_Lakhs', 'Medical History', 'Insurance_Plan', 'Annual_Premium_Amount'
 
