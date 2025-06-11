@@ -51,11 +51,15 @@ columns : 'Age', 'Gender', 'Region', 'Marital_status', 'Number Of Dependants', '
 
    Created a new column, **'total_risk_score'**, that sums the mapped scores from disease1 and disease2.
 
+                   Convert categorical data into numerical format
 
+4. Normalized "total_risk_score" using min-max scaler
 
+5. Label encoding for insurance_plan categories and income_level categories since ordinal data
 
+6. One Hot Encoding for nominal category columns: 'gender','region','marital_status','bmi_category','smoking_status','employment_status'
 
-
+7. Correlation Analysis and Calculated VIF for Multicolinearity and dropped income_level due to high VIF value
 
 
 
