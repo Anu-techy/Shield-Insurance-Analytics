@@ -1,7 +1,32 @@
 **Aim:** To develop a predictive model for Shield Insurance to estimate health insurance 
 premiums based on factors like age, smoking habits, BMI, and medical history.
 
-**Client:** Shield Insurance 
+**Client:** The New York City Taxi and Limousine Commission (TLC), created in 1971, 
+is the agency responsible for licensing and regulating New York City's Medallion (Yellow) taxi cabs, 
+for-hire vehicles (community-based liveries, black cars and luxury limousines), 
+commuter vans, and paratransit vehicles.
+
+              https://www.nyc.gov/site/tlc/about/about-tlc.page
+
+Over 200,000 TLC licensees complete approximately 1,000,000 trips each day.
+
+**About Data** 
+
+TLC Trip Record Data
+
+Yellow and green taxi trip records include fields capturing pickup and drop-off dates/times, 
+pickup and drop-off locations, trip distances, itemized fares, rate types, payment types, 
+and driver-reported passenger counts. 
+
+The data used in the attached datasets were collected and provided to the NYC Taxi and Limousine Commission (TLC) 
+by technology providers authorized under the Taxicab & Livery Passenger Enhancement Programs (TPEP/LPEP). 
+
+
+
+
+
+
+
 
 **Steps:**
 
