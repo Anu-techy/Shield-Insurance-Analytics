@@ -1,66 +1,52 @@
-**Aim:** To develop a predictive model for Shield Insurance to estimate health insurance 
-premiums based on factors like age, smoking habits, BMI, and medical history.
+# ***Shield Insurance Dashboard Project***
 
-**Client:** Shield Insurance
+## ***Project Overview***
+**Shield Insurance** provides diverse insurance policies across five major cities in India via online and offline channels. Policies range from ₹2 Lakhs to ₹1 Crore, with premiums starting at ₹5,000 up to ₹1,20,000, for customers aged 18–90. The company aims to protect customers from unforeseen events with reliable coverage.  
 
-**Steps:**
+## ***Objective***
+Build an interactive dashboard to:  
+- Analyze revenue trends and customer behavior  
+- Assess sales patterns by sales channel  
+- Evaluate policy performance across age groups  
 
-1. Data Collection and Preprocessing 
-2. Model Development 
-3. Model Deployment 
-4. Streamlit Application Development 
-5. Testing and Validation 
-6. Documentation and Training 
+## ***Data Overview***
+- **Time period:** Nov 2022 – Apr 2023  
+- **Transaction data:** Customer code, policy ID, sales channels  
+- **Customer data:** Customer code, age, city  
+- **Policy data:** Policy code, premium, coverage  
 
-**About Data:**
+## ***Dashboard Overview***
+- **Home View:** Interactive navigation  
+- **General View:** Revenue & customer metrics by city  
+- **Sales Mode View:** Performance by sales channels  
+- **Age Group View:** Customer segmentation & demographics  
 
-Data is given in premiums.xlsx file by Client
+## ***Tools Used***
+1. Power Query (Data Cleaning)  
+2. DAX (Custom Columns & Metrics)  
+3. Data Modelling  
+4. Power BI (Dashboard & Visuals)  
+5. PowerPoint (Video Presentation)  
 
-shape : (50000, 13)
+## ***Key Insights***
+- **31–40 age group** dominates customer totals, peaking in Mar 2023  
+- **Delhi NCR** leads in revenue & customer count; Mumbai & Hyderabad are key secondary markets  
+- **Offline-Agent** is the dominant sales channel; online channels surged in Mar 2023  
+- **Top policies:** POL4321HEL, POL3309HEL, POL4331HEL, especially popular among 31–40 age group  
+- **Settlement trends:** Expected settlement % increases with age; 65+ reliable, 18–24 lowest at 37.1%  
+- **Older customers** are more likely to use insurance and have higher treatment costs  
 
-columns : 'Age', 'Gender', 'Region', 'Marital_status', 'Number Of Dependants', 'BMI_Category', 'Smoking_Status', 'Employment_Status', 'Income_Level',
-       'Income_Lakhs', 'Medical History', 'Insurance_Plan', 'Annual_Premium_Amount'
+## ***What I Learned***
+- Thinking from a business perspective, not just technical  
+- Translating raw data into actionable business insights  
+- Building confidence in data storytelling for decision-making  
 
-**Data cleaning**
+## ***Acknowledgements***
+Thanks to **Dhaval Sir, Hemanand Sir, and the Code Basics team** for the valuable learning experience.  
 
-1. 26 records with null values removed
-1. Mininum number_of_dependants is -3, which is inconsistent, Talked to data collection team ,
-   and converted 72 -ve values into +ve values.
-2. The age column had 58 rows with age above 100, so removed those values by considering 100 as threshold
-3. The income_lakhs column ranges from a minimum of 1 lakh to a maximum of 930 lakhs.
-   While such extreme values are possible, including them can significantly skew the distribution.
-
-   Since df1.income_lakhs.quantile(0.999) = 100, it indicates that 99.9% of the income values are at or below 100 lakhs,
-   with only 0.1% exceeding this threshold. By setting 100 lakhs as the upper threshold,
-   10 records with higher income values are removed from the dataset.
-
-**Feature Engineering**
-         
-1. The 'medical_history' column contains following unique categories:
-        'Diabetes', 'High blood pressure', 'No Disease','Diabetes & High blood pressure', 'Thyroid', 'Heart disease',
-       'High blood pressure & Heart disease', 'Diabetes & Thyroid','Diabetes & Heart disease'
-   Each record contains one disease, or two diseases (separated by " & "). 
-
-   Created a new column **'disease1'** that contains the first disease (or the only disease if there's just one).
-
-2. Created a new column **'disease2'** that contains the second disease, or NaN/None if there’s only one or no disease.
-
-3. Given numerical values for each disease category as: 
-
-       risk_scores = {'Diabetes':6, 'Heart disease':8, 'High blood pressure':6, 'Thyroid':5, 'No Disease':0, "none":0}
-
-   Created a new column, **'total_risk_score'**, that sums the mapped scores from disease1 and disease2.
-
-                   Convert categorical data into numerical format
-
-4. Normalized "total_risk_score" using min-max scaler
-
-5. Label encoding for insurance_plan categories and income_level categories since ordinal data
-
-6. One Hot Encoding for nominal category columns: 'gender','region','marital_status','bmi_category','smoking_status','employment_status'
-
-7. Correlation Analysis and Calculated VIF for Multicolinearity and dropped income_level due to high VIF value
-
+## ***Links***
+- [Dashboard Link](#)  
+- [Video Walkthrough](#)  
 
 
 
