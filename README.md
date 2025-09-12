@@ -13,7 +13,14 @@ Build an interactive dashboard to:
 - **Time period:** Nov 2022 – Apr 2023  
 - **Transaction data:** Customer code, policy ID, sales channels  
 - **Customer data:** Customer code, age, city  
-- **Policy data:** Policy code, premium, coverage  
+- **Policy data:** Policy code, premium, coverage
+
+## ***Tools Used***
+1. Power Query (Data Cleaning)  
+2. DAX (Custom Columns & Metrics)  
+3. Data Modelling  
+4. Power BI (Dashboard & Visuals)  
+5. PowerPoint (Video Presentation)
 
 ## ***Dashboard Overview***
 - **Home View:** Interactive navigation  
@@ -21,12 +28,22 @@ Build an interactive dashboard to:
 - **Sales Mode View:** Performance by sales channels  
 - **Age Group View:** Customer segmentation & demographics  
 
-## ***Tools Used***
-1. Power Query (Data Cleaning)  
-2. DAX (Custom Columns & Metrics)  
-3. Data Modelling  
-4. Power BI (Dashboard & Visuals)  
-5. PowerPoint (Video Presentation)  
+### 🗂️ **Repository Structure**
+
+|         File                | Description |
+|-----------------------------|-------------|
+| `dashboard screenshots`  | Main dashboard with interactive visuals |
+| `City-wise performance`  | screenshot of visual |
+| `Plans performance`  | screenshot of visual |
+| `README.md`                           | Project documentation |
+
+### 📊 **Dashboard**
+
+[Wavecon Dashboard](https://app.powerbi.com/groups/me/reports/0fb6346f-2710-4405-86a4-44b23b1c4a34/ReportSection16b73cde20cf3ed17b51?experience=power-bi)
+
+### ▶️ **Demo Video**
+
+🎥 [Wavecon Video Walkthrough](https://youtu.be/osCPWr3aIjg)
 
 ## ***Key Insights***
 - **31–40 age group** dominates customer totals, peaking in Mar 2023  
@@ -44,9 +61,16 @@ Build an interactive dashboard to:
 ## ***Acknowledgements***
 Thanks to **Dhaval Sir, Hemanand Sir, and the Code Basics team** for the valuable learning experience.  
 
-## ***Links***
-- [Dashboard Link](#)  
-- [Video Walkthrough](#)  
+### 👤 **Author**
 
+Analysis and Dashboard Design by Anusha
+
+💻 GitHub: [https://github.com/Anu-techy]
+
+
+🎥 YouTube: [https://www.youtube.com/@DataDiveWithAnvi]
+
+
+🌐 LinkedIn: [https://www.linkedin.com/in/anusha-k-4ba9bb218/]
 
 
