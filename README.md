@@ -32,9 +32,8 @@ Build an interactive dashboard to:
 
 |         File                | Description |
 |-----------------------------|-------------|
-| `dashboard screenshots`  | Main dashboard with interactive visuals |
-| `City-wise performance`  | screenshot of visual |
-| `Plans performance`  | screenshot of visual |
+| `dashboard screenshots`  | General and Sales Mode Views with interactive visuals |
+| `Insights`  | screenshot of insights ans visuals |
 | `README.md`                           | Project documentation |
 
 ### 📊 **Dashboard**
