@@ -33,7 +33,7 @@ Build an interactive dashboard to:
 |         File                | Description |
 |-----------------------------|-------------|
 | `dashboard screenshots`  | General and Sales Mode Views with interactive visuals |
-| `Insights`  | screenshot of insights ans visuals |
+| `Insights`  | screenshots of insight with visuals |
 | `README.md`                           | Project documentation |
 
 ### 📊 **Dashboard**
