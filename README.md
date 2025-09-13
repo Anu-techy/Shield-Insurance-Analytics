@@ -42,7 +42,7 @@ Build an interactive dashboard to:
 
 ### ▶️ **Demo Video**
 
-🎥 [Shield Insurance Analytics Video Walkthrough](https://youtu.be/osCPWr3aIjg)
+🎥 [Shield Insurance Analytics Video Walkthrough](https://youtu.be/bfoxwT9pCgM)
 
 ## ***Key Insights***
 - **31–40 age group** dominates customer totals, peaking in Mar 2023  
