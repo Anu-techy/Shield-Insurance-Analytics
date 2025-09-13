@@ -40,7 +40,7 @@ Build an interactive dashboard to:
 
 [Shield Insurance Dashboard](https://app.powerbi.com/groups/me/reports/58cca63c-e4f3-4d7a-98be-5cfbaf929dd7/337aeff86800d704f554?experience=power-bi)
 
-### ▶️ **Demo Video**
+### ▶️ **Video Walkthrough**
 
 🎥 [Shield Insurance Analytics Video Walkthrough](https://youtu.be/bfoxwT9pCgM)
 
