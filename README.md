@@ -38,7 +38,7 @@ Build an interactive dashboard to:
 
 ### 📊 **Dashboard**
 
-[Shield Insurance Dashboard](https://app.powerbi.com/groups/me/reports/58cca63c-e4f3-4d7a-98be-5cfbaf929dd7/337aeff86800d704f554?experience=power-bi)
+[Shield Insurance Dashboard](<iframe title="Shield" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYTRkYTQ0ODAtZDQxYS00OThhLWEzOTYtM2VkYThlMWRmNTVjIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9&embedImagePlaceholder=true" frameborder="0" allowFullScreen="true"></iframe>)
 
 ### ▶️ **Video Walkthrough**
 
