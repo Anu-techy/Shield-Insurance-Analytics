@@ -7,7 +7,8 @@
 Build an interactive dashboard to:  
 - Analyze revenue trends and customer behavior  
 - Assess sales patterns by sales channel  
-- Evaluate policy performance across age groups  
+- Evaluate policy performance across age groups
+- Validating Dashboard KPIs in MySQL
 
 ## ***Data Overview***
 - **Time period:** Nov 2022 – Apr 2023  
@@ -35,6 +36,7 @@ Build an interactive dashboard to:
 | `dashboard screenshots`  | General and Sales Mode Views with interactive visuals |
 | `Data Model`  | Screenshot |
 | `Insights1, 2`  | screenshots of insight with visuals |
+| `Shield-Mysql`  |   text file with queries            |
 | `README.md`                           | Project documentation |
 
 ### 📊 **Dashboard**
