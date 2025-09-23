@@ -1,4 +1,4 @@
-# ***Shield Insurance Dashboard Project***
+# ***Shield Insurance Data Analytic Project***
 
 ## ***Project Overview***
 **Shield Insurance** provides diverse insurance policies across five major cities in India via online and offline channels. Policies range from ₹2 Lakhs to ₹1 Crore, with premiums starting at ₹5,000 up to ₹1,20,000, for customers aged 18–90. The company aims to protect customers from unforeseen events with reliable coverage.  
