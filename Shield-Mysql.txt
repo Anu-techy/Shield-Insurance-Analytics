@@ -11,30 +11,17 @@ fact_settlements: age, settlement_pct
 **************************************************
 		1. Revenue Queries
 **************************************************
+
 SELECT   round(SUM(final_premium_amt)/1000000,2) as revenue 
 FROM fact_premiums;
-===================
+=====================================================
+
 SELECT   month(date), year(date),   
 round(SUM(final_premium_amt)/1000000,2) as revenue 
 FROM fact_premiums 
 GROUP BY month(date),year(date);
-========================
-WITH month_revenue AS (
-    SELECT
-        YEAR(date)  AS year,
-        MONTH(date) AS month,
-        ROUND(SUM(final_premium_amt)/1000000,2) AS revenue
-    FROM fact_premiums
-    GROUP BY YEAR(date), MONTH(date)
-)
-SELECT
-    year,
-    month,
-    revenue,
-    LAG(revenue) OVER (ORDER BY year, month) AS prev_month_revenue
-FROM month_revenue
-ORDER BY year, month;
-=====================================
+=====================================================
+
 WITH month_revenue AS (
     SELECT
         YEAR(date)  AS year,
@@ -55,30 +42,20 @@ SELECT
     ) AS mom_pct
 FROM month_revenue
 ORDER BY year, month;
+
 ***********************************************************
 		2. Customer Queries
 ***********************************************************
+
 SELECT   COUNT(DISTINCT customer_code) as customers_count 
 FROM fact_premiums; 
-====================================================
+=============================================================
 SELECT   month(date), year(date),   
 COUNT(DISTINCT customer_code) as customers_count 
 FROM fact_premiums  
 GROUP by month(date),year(date);
-=======================================
-WITH monthly_counts AS (
-	SELECT   month(date) as month, 
-                                     year(date) as year,   
-	COUNT(DISTINCT customer_code) as customers_count 
-	FROM fact_premiums  
-	GROUP by year(date), month(date) )
+================================================================
 
-SELECT
-  month,  year,  customers_count,
-  LAG(customers_count) OVER (ORDER BY year, month) AS prev_month_count
-FROM monthly_counts
-ORDER BY year, month;
-===========================================
 WITH monthly_counts AS (
 	SELECT   month(date) as month, 
                                      year(date) as year,   
@@ -114,8 +91,9 @@ END;
 //
 
 DELIMITER ;
-===========================================
+==========================================================
 CALL customer_segmentation("Delhi NCR");
+
 ************************************************************
 		4. policy performance
 ************************************************************
@@ -136,8 +114,9 @@ END;
 //
 
 DELIMITER ;
-===========================================
+========================================================
 CALL policy_performance("POL2005HEL");
+
 *******************************************************
 		5. sales mode performance
 ********************************************************
@@ -147,6 +126,7 @@ ROUND(SUM(final_premium_amt) / 1000000, 2) AS revenue
 FROM fact_premiums
 GROUP BY sales_mode;
 =====================================================
+
 with city_mode as (
 SELECT f.sales_mode as sm, 
 dc.city as location,
@@ -159,18 +139,22 @@ GROUP BY f.sales_mode,dc.city )
 select sm, location,  customers_count,
 dense_rank() over (partition by location order  by customers_count desc) as city_rank
 from city_mode;
-************************************************************************
-		6. Age Group Analysis
+
 *****************************************************************
+		6. Age Group Analysis
+****************************************************************
 Alter table dim_customer 
 add age int;
 ============================================
+
 UPDATE dim_customer
 SET age = TIMESTAMPDIFF(YEAR, dob, CURDATE());
 ============================================
+
 Alter table dim_customer 
 add age_group text;
 ============================================
+
 UPDATE dim_customer
 SET age_group = CASE
     WHEN age BETWEEN 18 AND 24 THEN '18-24'
@@ -181,7 +165,8 @@ SET age_group = CASE
     WHEN age >= 66 THEN '65+'
     ELSE 'Unknown'
 END;
-============================================
+=========================================
+
 select dc.age_group, 
 round(avg(fs.settlement_pct),2) as avg_settlement
 from fact_settlements fs
@@ -189,6 +174,7 @@ join dim_customer dc
 on dc.age = fs. age
 group by dc.age_group;
 ======================================
+
 SELECT  dc.age_group, 
 COUNT(DISTINCT fp.customer_code) AS customers_count,
 ROUND(SUM(fp.final_premium_amt) / 1000000, 2) AS revenue
@@ -197,6 +183,7 @@ join dim_customer dc
 on fp.customer_code = dc.customer_code
 GROUP BY dc.age_group;
 ========================================
+
 SELECT 
   fp.sales_mode, 
   dc.age_group,
@@ -206,10 +193,11 @@ FROM fact_premiums fp
 JOIN dim_customer dc ON fp.customer_code = dc.customer_code
 GROUP BY fp.sales_mode, dc.age_group;
 
-=================================================
-                               Top 5 premiums
-===================================================
+**************************************************************
+                7. Unique Insights
+**************************************************************
 -- Top 5 Customers by Total Premium
+
 SELECT 
     fp.customer_code,
     ROUND(SUM(fp.final_premium_amt),2) AS total_paid
@@ -217,14 +205,17 @@ FROM fact_premiums fp
 GROUP BY fp.customer_code
 ORDER BY total_paid DESC
 LIMIT 5;
-==========================================
+========================================================
  -- Top 5 Distinct Premium amounts
+
 SELECT distinct final_premium_amt
     FROM fact_premiums
     ORDER BY final_premium_amt DESC
     LIMIT 5;
+
 =================================================
 -- policy count 
+
 SELECT customer_code,
        COUNT(DISTINCT policy_id) AS policy_count,
        SUM(final_premium_amt) AS total_premium
@@ -235,6 +226,7 @@ ORDER BY total_premium DESC;
 
 =====================================================
 -- Policies with Average Premium
+
 SELECT 
     dp.policy_id,
     ROUND(AVG(fp.final_premium_amt),2) AS final_avg_premium
@@ -242,25 +234,6 @@ FROM fact_premiums fp
 JOIN dim_policies dp ON fp.policy_id = dp.policy_id
 GROUP BY dp.policy_id
 ORDER BY final_avg_premium DESC;
-==============================================
--- Sales Mode Performance
-SELECT 
-    sales_mode,
-    COUNT(*) AS policies_sold,
-    ROUND(SUM(final_premium_amt),2) AS total_premium
-FROM fact_premiums
-GROUP BY sales_mode
-ORDER BY total_premium DESC;
-===============================
--- city performance
 
-SELECT 
-    dc.city,
-   COUNT(DISTINCT fp.customer_code) AS customers_count,
-   ROUND(SUM(final_premium_amt) / 1000000, 2) AS revenue
-FROM fact_premiums fp
-JOIN dim_customer dc ON fp.customer_code = dc.customer_code
-GROUP BY dc.city
-ORDER BY revenue DESC;
-=======================================
+
 
