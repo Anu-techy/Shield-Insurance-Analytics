@@ -49,11 +49,13 @@ ORDER BY year, month;
 
 SELECT   COUNT(DISTINCT customer_code) as customers_count 
 FROM fact_premiums; 
+
 =============================================================
 SELECT   month(date), year(date),   
 COUNT(DISTINCT customer_code) as customers_count 
 FROM fact_premiums  
 GROUP by month(date),year(date);
+
 ================================================================
 
 WITH monthly_counts AS (
@@ -70,6 +72,7 @@ SELECT
     / NULLIF(LAG(customers_count) OVER (ORDER BY year,month), 0),2)  AS percent_change
 FROM monthly_counts
 ORDER BY year, month;
+
 *******************************************************
 		3. City Segmentation
 *******************************************************
@@ -91,6 +94,7 @@ END;
 //
 
 DELIMITER ;
+
 ==========================================================
 CALL customer_segmentation("Delhi NCR");
 
@@ -114,6 +118,7 @@ END;
 //
 
 DELIMITER ;
+
 ========================================================
 CALL policy_performance("POL2005HEL");
 
@@ -125,6 +130,7 @@ COUNT(DISTINCT customer_code) AS customers_count,
 ROUND(SUM(final_premium_amt) / 1000000, 2) AS revenue
 FROM fact_premiums
 GROUP BY sales_mode;
+
 =====================================================
 
 with city_mode as (
@@ -145,14 +151,17 @@ from city_mode;
 ****************************************************************
 Alter table dim_customer 
 add age int;
+
 ============================================
 
 UPDATE dim_customer
 SET age = TIMESTAMPDIFF(YEAR, dob, CURDATE());
+
 ============================================
 
 Alter table dim_customer 
 add age_group text;
+
 ============================================
 
 UPDATE dim_customer
@@ -234,6 +243,7 @@ FROM fact_premiums fp
 JOIN dim_policies dp ON fp.policy_id = dp.policy_id
 GROUP BY dp.policy_id
 ORDER BY final_avg_premium DESC;
+
 
 
 
